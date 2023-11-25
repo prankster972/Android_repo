@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">My Application</string>
+
+    <string-array name="Adjective">
+        <item>Теcт</item>
+        <item>Тест1</item>
+        <item>Тест2</item>
+        <item>Тест3</item>
+    </string-array>
+
+    <string-array name="Noun">
+        <item>Тест</item>
+        <item>Тест1</item>
+        <item>Тест2</item>
+        <item>Тест3</item>
+    </string-array>
+
 </resources>
