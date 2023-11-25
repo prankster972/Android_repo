@@ -1,18 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+        <ListView
+            android:layout_width="250dp"
+            android:layout_height="match_parent"
+            android:id="@+id/list_view"/>
+
+
+    <TableLayout
+        android:layout_width="196dp"
+        android:layout_height="353dp"
+        tools:layout_editor_absoluteX="434dp"
+        tools:layout_editor_absoluteY="16dp"
+        android:layout_toEndOf="@id/spinner"
+        android:id="@+id/table_layout">
+
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="535dp"
+            tools:layout_editor_absoluteY="132dp"
+            android:id="@+id/radio_group">
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+        </RadioGroup>
+    </TableLayout>
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="287dp"
+        android:layout_height="35dp"
+        tools:layout_editor_absoluteX="222dp"
+        tools:layout_editor_absoluteY="29dp"
+        android:layout_toEndOf="@id/list_view" />
+
+    <Button
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="Button"
+        tools:layout_editor_absoluteX="316dp"
+        tools:layout_editor_absoluteY="329dp"
+        android:layout_toStartOf="@id/table_layout"
+        android:layout_toEndOf="@id/list_view"
+        android:layout_alignParentBottom="true"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>
