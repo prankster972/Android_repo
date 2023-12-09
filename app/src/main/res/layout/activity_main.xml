@@ -9,7 +9,8 @@
         <ListView
             android:layout_width="250dp"
             android:layout_height="match_parent"
-            android:id="@+id/list_view"/>
+            android:id="@+id/list_view"
+            android:focusableInTouchMode="true"/>
 
 
     <TableLayout
@@ -29,19 +30,22 @@
             tools:layout_editor_absoluteY="132dp">
 
             <RadioButton
+                android:id="@+id/RB1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="1" />
+                android:text="быстро" />
 
             <RadioButton
+                android:id="@+id/RB2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="2" />
+                android:text="давно" />
 
             <RadioButton
+                android:id="@+id/RB3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="3" />
+                android:text="долго" />
 
         </RadioGroup>
     </TableLayout>
@@ -59,6 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Button"
+        android:onClick="CreateText"
         tools:layout_editor_absoluteX="316dp"
         tools:layout_editor_absoluteY="329dp"
         android:layout_toStartOf="@id/table_layout"

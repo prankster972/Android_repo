@@ -2,17 +2,17 @@
     <string name="app_name">My Application</string>
 
     <string-array name="Adjective">
-        <item>Теcт</item>
-        <item>Тест1</item>
-        <item>Тест2</item>
-        <item>Тест3</item>
+        <item>Кривой</item>
+        <item>Длинный</item>
+        <item>Красивый</item>
+        <item>Старый</item>
     </string-array>
 
     <string-array name="Noun">
-        <item>Тест</item>
-        <item>Тест1</item>
-        <item>Тест2</item>
-        <item>Тест3</item>
+        <item>вагон</item>
+        <item>проектировщик</item>
+        <item>сварщик</item>
+        <item>рабочий</item>
     </string-array>
 
 </resources>
