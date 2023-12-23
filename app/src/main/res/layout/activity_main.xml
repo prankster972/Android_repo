@@ -64,8 +64,6 @@
         android:layout_height="wrap_content"
         android:text="Button"
         android:onClick="CreateText"
-        tools:layout_editor_absoluteX="316dp"
-        tools:layout_editor_absoluteY="329dp"
         android:layout_toStartOf="@id/table_layout"
         android:layout_toEndOf="@id/list_view"
         android:layout_alignParentBottom="true"/>
@@ -74,9 +72,11 @@
         android:id="@+id/textView"
         android:layout_width="285dp"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:textAlignment="center"
+        android:drawableBottom="@color/black"
         android:layout_alignStart="@id/spinner"
-        android:layout_alignBottom="@id/table_layout" />
+        android:layout_marginBottom="20dp"
+        android:layout_alignBottom="@id/table_layout"/>
 
 
 </RelativeLayout>

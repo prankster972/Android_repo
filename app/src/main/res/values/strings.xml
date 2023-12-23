@@ -1,12 +1,7 @@
 <resources>
     <string name="app_name">My Application</string>
 
-    <string-array name="Adjective">
-        <item>Кривой</item>
-        <item>Длинный</item>
-        <item>Красивый</item>
-        <item>Старый</item>
-    </string-array>
+
 
     <string-array name="Noun">
         <item>вагон</item>
