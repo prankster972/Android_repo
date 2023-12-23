@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.res.Resources;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
@@ -13,10 +14,11 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.view.View.OnTouchListener;
 
 import java.util.Arrays;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     String[] adj = { "Кривой", "Длинный", "Красивый", "Старый"};
     String selectedItem;
@@ -68,4 +70,7 @@ public class MainActivity extends AppCompatActivity {
         text.setText(all);
     }
 
+
+
 }
+

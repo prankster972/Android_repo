@@ -10,7 +10,7 @@
             android:layout_width="250dp"
             android:layout_height="match_parent"
             android:id="@+id/list_view"
-            android:focusableInTouchMode="true"/>
+            android:focusableInTouchMode="true" />
 
 
     <TableLayout
@@ -27,7 +27,8 @@
             android:layout_width="match_parent"
             android:layout_height="310dp"
             tools:layout_editor_absoluteX="535dp"
-            tools:layout_editor_absoluteY="132dp">
+            tools:layout_editor_absoluteY="132dp"
+            style="@style/radioBTN">
 
             <RadioButton
                 android:id="@+id/RB1"
@@ -77,6 +78,22 @@
         android:layout_alignStart="@id/spinner"
         android:layout_marginBottom="20dp"
         android:layout_alignBottom="@id/table_layout"/>
+
+    <EditText
+        android:id="@+id/editTextText"
+        android:layout_width="204dp"
+        android:layout_height="60dp"
+        android:layout_above="@+id/textView"
+        android:layout_below="@+id/spinner"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="106dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginBottom="60dp"
+        android:layout_toStartOf="@+id/table_layout"
+        android:layout_toEndOf="@+id/list_view"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Name" />
 
 
 </RelativeLayout>

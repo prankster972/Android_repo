@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MyTheme" parent="Theme.AppCompat.Light"> 
+    <item name="android:textColor">@color/design_default_color_on_secondary</item>
+        <item name="android:color">@color/material_dynamic_neutral80</item>
+    </style>
+</resources>
