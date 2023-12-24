@@ -2,44 +2,56 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.res.Resources;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ArrayAdapter;
+import java.util.ArrayList;
 
 import android.os.Bundle;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.view.View.OnTouchListener;
-
 import java.util.Arrays;
+import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity{
 
     String[] adj = { "Кривой", "Длинный", "Красивый", "Старый"};
+    ArrayList<String> list = new ArrayList<>();
     String selectedItem;
+    ArrayList<String> adjAL = new ArrayList<String>();
+    ArrayAdapter<String> listAdapter;
+    ArrayAdapter<String> adapter;
+    EditText editText;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Spinner noun;
+        for (int i=0; i<adj.length; i++)
+        {
+            list.add(adj[i]);
+        }
+        listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, list);
         noun = findViewById(R.id.spinner);
         TextView text = findViewById(R.id.textView);
         ListView adjectiveList;
         adjectiveList = findViewById(R.id.list_view);
-        ArrayAdapter<String> adapter = new ArrayAdapter(this,
+        adapter = new ArrayAdapter(this,
                 android.R.layout.simple_list_item_1, adj);
-        adjectiveList.setAdapter(adapter);
+        adjectiveList.setAdapter(listAdapter);
 
         adjectiveList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View v, int position, long id)
             {
-                selectedItem = adj[position];
+                selectedItem = list.get(position);
 //                text.setText(selectedItem);
 
             }
@@ -55,6 +67,20 @@ public class MainActivity extends AppCompatActivity{
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         noun.setAdapter(adapter1);
 
+        editText = findViewById(R.id.editTextText);
+        editText.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View view, int keyCode, KeyEvent keyEvent) {
+                if(keyEvent.getAction() == KeyEvent.ACTION_DOWN)
+                {
+                    if (keyCode == KeyEvent.KEYCODE_ENTER) {
+                        edit(view);
+                    }
+                }
+                return false;
+            }
+        });
+
     }
 
     public void CreateText(View view) {
@@ -66,11 +92,41 @@ public class MainActivity extends AppCompatActivity{
         RadioButton radioButton = findViewById(test3);
         String test5 = radioButton.getText().toString();
         String test1 = selectedItem;
-        String all =test1 + " " + test + " " + test5;
+        if (test1 == null) {
+            test1 = " ";
+        String all =test1  + " " + test + " " + test5;
         text.setText(all);
+        }
+        else {
+            String all =test1  + " " + test + " " + test5;
+            text.setText(all);
+        }
     }
 
+    public void remove(View view){
+       int itmId = listAdapter.getPosition(selectedItem);
+          listAdapter.remove(listAdapter.getItem(itmId));
+    }
 
+    public void add(View view){
+        editText = findViewById(R.id.editTextText);
+        String addtext = editText.getText().toString();
+        listAdapter.add(addtext);
+        listAdapter.notifyDataSetChanged();
+    }
+
+    public void select(View view){
+        editText =findViewById(R.id.editTextText);
+        editText.setText(selectedItem);
+    }
+    public void edit(View view) {
+        editText =findViewById(R.id.editTextText);
+        String edittext = editText.getText().toString();
+        int needpos = listAdapter.getPosition(selectedItem);
+        list.set(needpos, edittext);
+        listAdapter.notifyDataSetChanged();
+
+    }
 
 }
 
