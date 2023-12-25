@@ -6,6 +6,7 @@ import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -29,6 +30,8 @@ public class MainActivity extends AppCompatActivity{
     ArrayAdapter<String> listAdapter;
     ArrayAdapter<String> adapter;
     EditText editText;
+    String all;
+    TextView text;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,11 +74,9 @@ public class MainActivity extends AppCompatActivity{
         editText.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View view, int keyCode, KeyEvent keyEvent) {
-                if(keyEvent.getAction() == KeyEvent.ACTION_DOWN)
+                if(keyEvent.getAction() == KeyEvent.ACTION_DOWN && keyCode == keyEvent.KEYCODE_ENTER)
                 {
-                    if (keyCode == KeyEvent.KEYCODE_ENTER) {
                         edit(view);
-                    }
                 }
                 return false;
             }
@@ -86,32 +87,56 @@ public class MainActivity extends AppCompatActivity{
     public void CreateText(View view) {
         TextView text = findViewById(R.id.textView);
         RadioGroup radioGroup = findViewById(R.id.radio_group);
+        CheckBox check = findViewById(R.id.checkBox);
         Spinner noun = findViewById(R.id.spinner);
         String test = noun.getSelectedItem().toString();
         int test3 = radioGroup.getCheckedRadioButtonId();
         RadioButton radioButton = findViewById(test3);
         String test5 = radioButton.getText().toString();
         String test1 = selectedItem;
-        if (test1 == null) {
+
+
+        if (check.isChecked()){
             test1 = " ";
-        String all =test1  + " " + test + " " + test5;
-        text.setText(all);
+            all =test1  + " " + test + " " + test5;
+            char [] test21 = new char[all.length()];
+            String test31;
+            for (int i = 0; i<all.length(); i++)
+            {
+
+//                test21[i] = all.charAt(i);
+//                test31 = test21.toString();
+//                text.setText(test31);
+
+            }
         }
+
         else {
             String all =test1  + " " + test + " " + test5;
             text.setText(all);
         }
+
     }
 
     public void remove(View view){
        int itmId = listAdapter.getPosition(selectedItem);
-          listAdapter.remove(listAdapter.getItem(itmId));
+
+          if (listAdapter.getCount() == 1)
+          {
+              TextView text = findViewById(R.id.textView);
+              text.setText("нельзя удалить последний эл-т");
+          }
+          else {
+              listAdapter.remove(listAdapter.getItem(itmId));
+          }
     }
 
     public void add(View view){
         editText = findViewById(R.id.editTextText);
         String addtext = editText.getText().toString();
-        listAdapter.add(addtext);
+//        listAdapter.add(addtext);
+
+        listAdapter.insert(addtext, listAdapter.getPosition(selectedItem)+1);
         listAdapter.notifyDataSetChanged();
     }
 
@@ -125,6 +150,11 @@ public class MainActivity extends AppCompatActivity{
         int needpos = listAdapter.getPosition(selectedItem);
         list.set(needpos, edittext);
         listAdapter.notifyDataSetChanged();
+
+    }
+
+    public void choose(View view){
+
 
     }
 
